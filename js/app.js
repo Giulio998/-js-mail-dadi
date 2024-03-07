@@ -46,3 +46,43 @@ if (playerDice < computerDice) {
 }
 
 document.getElementById("dice-button").addEventListener("click", diceGame)
+
+
+
+
+
+/* Bonus */
+
+const opzioni = ["sasso","carta","forbice"]
+
+function game() {
+
+let resultsContainer = document.getElementById("risultato-morra");
+let randomValue = Math.floor(Math.random() * 3);
+let sceltaPlayer = document.getElementById("opzioni-user").value
+let sceltaComputer = opzioni[randomValue];
+
+
+    if (sceltaPlayer == "sasso" && sceltaComputer == "carta") {
+        resultsContainer.append(" HAI PERSO ")
+    } else if (sceltaPlayer == "carta" && sceltaComputer == "sasso") {
+        resultsContainer.append(" HAI VINTO ")
+    } else if (sceltaPlayer == "sasso" && sceltaComputer == "sasso") {
+        resultsContainer.append(" HAI PAREGGIATO ")
+    } else if (sceltaPlayer == "sasso" && sceltaComputer == "forbice"){
+        resultsContainer.append(" HAI VINTO ")
+    } else if (sceltaPlayer == "carta" && sceltaComputer == "carta"){
+        resultsContainer.append(" HAI PAREGGIATO ")
+    } else if (sceltaPlayer == "carta" && sceltaComputer == "forbice"){
+        resultsContainer.append(" HAI PERSO ")
+    } else if (sceltaPlayer == "forbice" && sceltaComputer == "carta") {
+        resultsContainer.append(" HAI VINTO ")
+    } else if (sceltaPlayer == "forbice" && sceltaComputer == "sasso") {
+        resultsContainer.append(" HAI PERSO ")
+    } else {
+        resultsContainer.append(" HAI PAREGGIATO ")
+    }
+        
+}
+
+document.getElementById("invio").addEventListener("click", game)
